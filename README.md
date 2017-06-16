@@ -39,14 +39,14 @@ In order to access the trial environment, you must be able to connect to a remot
 
 ## Scenario One: Expose a CICS COBOL program as a RESTful API
 
-IBM® z/OS Connect Enterprise Edition (z/OS Connect EE) makes exposing a CICS® application through a RESTful API quick and easy.
+IBM® z/OS Connect Enterprise Edition (z/OS Connect EE) makes exposing a CICS® program through a RESTful API quick and easy.
 
-![](img/topology_cics.png)
+![](img/topology_cics.jpg)
 
 This scenario guides you through the steps in roughly 30 minutes. By the end of the session, you'll know how to:
 
 *   Create and deploy an API from within IBM Developer for z Systems™.
-*   Associate and map an API to a service representation of a CICS application, no code required.
+*   Associate and map an API to a service representation of a CICS program, no code required.
 *   Test an API by using the built-in Swagger UI.
 
 No previous knowledge of CICS, z/OS Connect EE, or API design is needed, but some awareness of API terminology might help.
@@ -92,7 +92,7 @@ Before you create your API, you must create a new API project. A z/OS® Connect 
 
 4.  <span class="ph cmd">Click <span class="ph uicontrol">Finish</span> to create the project in the Project Explorer.</span>
 
-    <div class="itemgroup info">The z/OS Connect EE API Editor dialog opens.</div>
+    <div class="itemgroup info">The z/OS Connect EE API Editor tab opens.</div>
 
 <section class="section result">Your API project is created.</section>
 
@@ -128,9 +128,9 @@ This leaves the GET method. The GET method is typically used for retrieving data
 
 Associate your API to a Service Archive file.
 
-In z/OS Connect EE, a service archive file (`.sar` file) represents the underlying z/OS® asset.
+In z/OS Connect EE, a service archive file (`.sar` file) provides information about the underlying service, including its expected request and response JSON schemas.
 
-z/OS Connect EE provides tooling to generate `.sar` files for its compatible subsystems (including CICS®, IMS™, DB2®, and IBM® MQ).
+Note: z/OS Connect EE provides tooling to generate .sar files for its compatible subsystems (including CICS®, IMS™, DB2®, and IBM® MQ).
 
 In this scenario, the `.sar` file is already generated, so you can focus on creating, deploying, and testing your API.
 
@@ -146,15 +146,15 @@ In this scenario, the `.sar` file is already generated, so you can focus on crea
 6.  <span class="ph cmd">Click <span class="ph uicontrol">OK</span>.</span>
 
 The `inquireSingle` service is now associated with the get method of your API.     
-![Screen capture that shows the inquireSingle service that is correctly associated with the GET method of your API.](img/serv_assoc.png)  
+![Screen capture that shows the inquireSingle service that is correctly associated with the GET method of your API.](img/serv_assoc_cics.png)  
 
 7.  <span class="ph cmd">Click <span class="ph uicontrol">File</span> > <span class="ph uicontrol">Save</span> from the menu to save your progress.</span>
 
-<section class="section result">Great, the GET method of your API is now configured to connect to the CICS application through the `inquireSingle` service.</section>
+<section class="section result">Great, the GET method of your API is now configured to connect to the CICS program through the `inquireSingle` service.</section>
 
 In this scenario, the connection between z/OS Connect EE and CICS is configured for you (using the WOLA service provider).
 
-The final step is to configure the mappings between your new API and the `inquireSingle` service, which represents the CICS COBOL application logic.
+The final step is to configure the mappings between your new API and the `inquireSingle` service, which represents the CICS COBOL program logic.
 
 
 ### 4. Mapping the request <a name="map_request"></a>
@@ -207,7 +207,7 @@ Leave the <span class="ph uicontrol">Omit from interface</span> option checked t
 
 Remove irrelevant values from the response so that your API returns relevant fields only.
 
-<section class="section context">The API you're creating is designed to pass back information about a requested item in the catalog application. However, the service `inquireSingle` contain several fields that aren’t relevant to that request.
+<section class="section context">The API you're creating is designed to pass back information about a requested item in the catalog application. However, the service `inquireSingle` contains several fields that aren’t relevant to that request.
 
 You can safely remove these fields to make the API response and the API documentation clearer.
 
@@ -240,13 +240,19 @@ Package and deploy your API from within the API Editor.
 <section class="section context">Deploying your API is a quick, simple process that you can complete without leaving the developer environment.</section>
 
 1.  <span class="ph cmd">In the <span class="ph uicontrol">Project Explorer</span> view, select your API project (<span class="ph uicontrol">catalog</span>) and right-click to select <span class="ph menucascade"><span class="ph uicontrol">z/OS Connect EE</span> > <span class="ph uicontrol">Deploy API to z/OS Connect EE Server</span></span>.</span>
-2.  <span class="ph cmd">Click <span class="ph uicontrol">OK</span>.</span>
 
-![Screen capture showing the Deploy API dialog box](img/deploy_cics.png)Your API is being deployed.
+2. Optional: If the z/OS Connect EE server is disconnected, connect to the server by clicking on the red icon at the top of the Deploy API dialog. 
 
-3.  <span class="ph cmd">When deployment completes, click <span class="ph uicontrol">OK</span> on the Result dialog box.</span>
+![Screen capture showing the Deploy API dialog box where the z/OS Connect EE server is initially disconnected.](img/connect_server_cics.gif)
 
-    <div class="itemgroup stepresult">Your API is now successfully deployed!</div>
+3. Click OK to deploy your API.
+
+4. When deployment completes, click OK on the Result dialog box.
+
+![Screen capture showing the Deploy API dialog box](img/deploy_success_cics.png)
+
+
+<div>Your API is now successfully deployed!</div>
 
 <section class="section result">Creating and deploying this API using z/OS Connect EE gives your API consumers an easy, programmable way to interact with a CICS® application without having to work with unfamiliar data structures, or understand CICS.</section>
 
@@ -294,17 +300,17 @@ Congratulations! You've successfully exposed a CICS® application as a RESTful A
 
 IBM® z/OS Connect Enterprise Edition (z/OS Connect EE) makes exposing an IMS™ application through a RESTful API quick and easy.
 
-![](img/topology_ims.png)
+![](img/topology_ims.jpg)
 
 This scenario guides you through the steps in roughly 30 minutes. By the end of the session, you'll know how to:
 
 *   Create and deploy an API from within IBM Developer for z Systems™.
-*   Associate and map an API to a service representation of a CICS application, no code required.
+*   Associate and map an API to a service representation of a IMS application, no code required.
 *   Test an API by using the built-in Swagger UI.
 
 No previous knowledge of IMS, z/OS Connect EE, or API design is needed, but some awareness of API terminology might help.
 
-Please wait a moment while your development environment loads (this takes about 20 seconds). 
+Please wait a moment while your development environment loads (this takes a minute or so). 
 
 1.  [Creating the API Project](#createapi_project)  
     Create an API project that will contain your API and service mapping.
@@ -338,8 +344,8 @@ Before you create your API, you must create a new API project. A z/OS® Connect 
 
     <div class="itemgroup info">
 
-    *   enter <kbd class="ph userinput">phoneBook</kbd> in the <span class="ph uicontrol">Project name</span> field and <span class="ph uicontrol">API name</span> field.
-    *   enter <kbd class="ph userinput">/phoneBook</kbd> in the <span class="ph uicontrol">Base path</span> field.
+    *   enter <kbd class="ph userinput">phonebook</kbd> in the <span class="ph uicontrol">Project name</span> field and <span class="ph uicontrol">API name</span> field.
+    *   enter <kbd class="ph userinput">/phonebook</kbd> in the <span class="ph uicontrol">Base path</span> field.
 
     ![A screen shot that shows the API project wizard, with the required text boxes filled in.](img/new_proj_zc_ims.png)  
     </div>
@@ -379,9 +385,9 @@ This leaves the POST method. The POST method is typically used for submitting da
 Associate your API to a Service Archive file.
 
 
-In z/OS Connect EE, a service archive file (`.sar` file) represents the underlying z/OS® asset.
+In z/OS Connect EE, a service archive file (.sar file) provides information about the underlying service, including its expected request and response JSON schemas.
 
-z/OS Connect EE provides tooling to generate `.sar` files for its compatible subsystems (including CICS®, IMS™, DB2®, and IBM® MQ).
+Note: z/OS Connect EE provides tooling to generate .sar files for its compatible subsystems (including CICS®, IMS™, DB2®, and IBM® MQ).
 
 In this scenario, the `.sar` file is already generated, so you can focus on creating, deploying, and testing your API.
 
@@ -448,7 +454,7 @@ The API you're creating is designed to pass back information about a requested i
 You can safely remove these fields to make the API response and the API documentation clearer.
 
 1.  <span class="ph cmd">Click <span class="ph uicontrol">Mapping...</span> for the POST method, then click <span class="ph uicontrol">Open Response Mapping</span>.</span>
-2.  <span class="ph cmd">Right-click `OUT_COMMAND`, and select <span class="ph uicontrol">Add Remove transform</span>.</span>
+2.  <span class="ph cmd">Right-click `OUT_COMMAND` on the right side of the tab, and select <span class="ph uicontrol">Add Remove transform</span>.
 
 This excludes this field from the body of the response.  
 ![Screen shot that shows the correct configuration for the response tab for this scenario.](img/response_map_ims.png)  
@@ -459,23 +465,30 @@ This excludes this field from the body of the response.
 
 <section class="section result">You completed the request and response mappings.</section>
 
-<section class="section postreq">You completed your API front end, your service association, and respective API-to-service mappings, so go ahead and make this API available.</section>
+You completed your API front end, your service association, and respective API-to-service mappings, so go ahead and make this API available.
 
 ### 6. Deploying the API <a name="deployapi"></a>
 
 
 Package and deploy your API from within the API Editor.
 
-<section class="section context">Deploying your API is a quick, simple process that you can complete without leaving the developer environment.</section>
+Deploying your API is a quick, simple process that you can complete without leaving the developer environment.
 
-1.  <span class="ph cmd">In the <span class="ph uicontrol">Project Explorer</span> view, select your API project (<span class="ph uicontrol">phonebook</span>) and right-click to select <span class="ph menucascade"><span class="ph uicontrol">z/OS Connect EE</span> > <span class="ph uicontrol">Deploy API to z/OS Connect EE Server</span></span>.</span>
-2.  <span class="ph cmd">Click <span class="ph uicontrol">OK</span>.</span>
+1. In the Project Explorer view, select your API project (phonebook) and right-click to select z/OS Connect EEDeploy API to z/OS Connect EE Server.
 
-![Screen capture showing the Deploy API dialog box](img/deploy_ims.png)Your API is being deployed.
+2. Optional: If the z/OS Connect EE server is disconnected, connect to the server by clicking on the red icon at the top of the Deploy API dialog.
 
-3.  <span class="ph cmd">When deployment completes, click <span class="ph uicontrol">OK</span> on the Result dialog box.</span>
+![](img/connect_server_ims.gif)
 
-    <div class="itemgroup stepresult">Your API is now successfully deployed!</div>
+You are now connected to the z/OS Connect EE server.
+
+3. Click OK to deploy your API.
+
+4. When the deployment completes, click OK in the Result dialog box.
+
+![Screen capture showing the Deploy API dialog box](img/deploy_success_ims.png)
+
+Your API is now successfully deployed!
 
 <section class="section result">Creating and deploying this API using z/OS Connect EE gives your API consumers an easy, programmable way to interact with a IMS™application without having to work with unfamiliar data structures, or understand IMS.</section>
 
@@ -516,7 +529,7 @@ You can use your new API to add a new contact.
     *   ADDITION OF ENTRY HAS FAILED (this message indicates that the IN_LAST_NAME value you specified already exists)
 
 
-Congratulations! You've successfully exposed a IMS™ program as a RESTful API by using z/OS Connect EE!
+Congratulations! You've successfully exposed an IMS™ application as a RESTful API by using z/OS Connect EE!
 
 
 
