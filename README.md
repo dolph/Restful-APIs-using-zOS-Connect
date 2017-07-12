@@ -132,6 +132,8 @@ In z/OS Connect EE, a service archive file (`.sar` file) provides information ab
 
 Note: z/OS Connect EE provides tooling to generate .sar files for its compatible subsystems (including CICS®, IMS™, DB2®, and IBM® MQ).
 
+To learn more about the sar file, [here](sar.md) is additional document.   
+
 In this scenario, the `.sar` file is already generated, so you can focus on creating, deploying, and testing your API.
 
 
