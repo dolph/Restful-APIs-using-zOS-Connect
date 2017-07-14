@@ -1,8 +1,8 @@
-# Create RESTful APIs from zOS assets using zOS Connect
+# Create RESTful APIs from z/OS assets using z/OS Connect
 
 In this code we show how to create efficient and scalable RESTful APIs for mobile and cloud applications securely from your business critical applications residing on the mainframe.
 
-IBM z/OS Connect Enterprise Edition provides access to z/OS subsystems, such as CICS®, IMS™, WebSphere® MQ, DB2®, and Batch, that use RESTful APIs with JSON formatted messages. The framework provides concurrent access, through a common interface, to multiple z/OS subsystems.
+IBM z/OS Connect Enterprise Edition provides access to z/OS subsystems, such as CICS, IMS, WebSphere MQ, DB2, and Batch, that use RESTful APIs with JSON formatted messages. The framework provides concurrent access, through a common interface, to multiple z/OS subsystems.
 
 z/OS Connect EE can help to deliver benefits for an enterprise in two ways.
 * It provides an intuitive workstation-based tool, the z/OS Connect EE API Editor, that enables a developer, with or without z/OS skills, to create RESTful APIs from traditional z/OS based assets. The core business assets that run on z/OS can easily be adapted to the latest mobile and cloud communication techniques and message protocol formats.
