@@ -1,0 +1,13 @@
+---
+Manifest-Version: 1.0
+name: "inquireSingle"
+provider: "WOLA-1.0"
+factoryPid: "com.ibm.zosconnect.wola.service"
+requestSchema:
+  value: "file:///schemas/inquireSingle_request.json"
+  type: "JSONSchema"
+responseSchema:
+  value: "file:///schemas/inquireSingle_response.json"
+  type: "JSONSchema"
+providerProperties: []
+providerObjects: []
