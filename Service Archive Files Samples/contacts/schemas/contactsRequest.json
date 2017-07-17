@@ -1,0 +1,1 @@
+{"properties":{"IVTNO_INPUT_MSG":{"properties":{"IN_FIRST_NAME":{"maxLength":10,"type":"string"},"IN_LAST_NAME":{"maxLength":10,"type":"string"},"IN_COMMAND":{"maxLength":8,"type":"string"},"IN_EXTENSION":{"maxLength":10,"type":"string"},"IN_ZIP_CODE":{"maxLength":7,"type":"string"}},"type":"object"}},"type":"object"}
