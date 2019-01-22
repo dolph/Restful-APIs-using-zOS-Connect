@@ -6,7 +6,7 @@ IBM z/OS Connect Enterprise Edition provides access to z/OS subsystems, such as 
 
 z/OS Connect EE can help to deliver benefits for an enterprise in two ways.
 * It provides an intuitive workstation-based tool, the z/OS Connect EE API Editor, that enables a developer, with or without z/OS skills, to create RESTful APIs from traditional z/OS based assets. The core business assets that run on z/OS can easily be adapted to the latest mobile and cloud communication techniques and message protocol formats.
-* Mobile and cloud application developers, inside or outside the enterprise, can incorporate z/OS data and transactions into their applications without the need to understand z/OS subsystems. The z/OS resources appear as any other RESTful API. 
+* Mobile and cloud application developers, inside or outside the enterprise, can incorporate z/OS data and transactions into their applications without the need to understand z/OS subsystems. The z/OS resources appear as any other RESTful API.
 
 <img src="img/zOSConnect.png" align="left" width="100%"  >
 <br clear="all" />
@@ -15,27 +15,27 @@ z/OS Connect EE can help to deliver benefits for an enterprise in two ways.
 
 In this journey we will show how to use z/OS Connect EE to create, deploy, and test RESTful APIs that expose z/OS subsystems
 
-[Scenario One: Expose a CICS COBOL program as a RESTful API](#scenario-one-expose-a-cics-cobol-program-as-a-restful-api)   
+[Scenario One: Expose a CICS COBOL program as a RESTful API](#scenario-one-expose-a-cics-cobol-program-as-a-restful-api)
 [Scenario Two: Expose an IMS application as a RESTful API](#scenario-two-expose-an-ims-application-as-a-restful-api)
 
 ## Included components
 
-[z/OS Connect Enterprise Edition](https://www.ibm.com/us-en/marketplace/connect-enterprise-edition)    
-[CICS](https://www-01.ibm.com/software/data/enterprise-application-servers/cics/)    
-[IMS](https://www-01.ibm.com/software/data/db2imstools/products/ims-tools.html)   
-[Swagger](http://swagger.io)
+[z/OS Connect Enterprise Edition](https://www.ibm.com/us-en/marketplace/connect-enterprise-edition)
+[CICS](https://www.ibm.com/it-infrastructure/z/cics)
+[IMS](https://www.ibm.com/it-infrastructure/z/ims/tools)
+[Swagger](https://swagger.io/)
 
 ## Prerequisites
 
-To request a trial, go to [z Systems trial homepage](https://www-03.ibm.com/systems/z/resources/trials.html#s-2). On this page, navigate to the **z/OS Connect Enterprise Edition** panel on the right. In the panel, click **"register now"** button and follow the steps. If everything goes through, you shoud see a screen titled "Congratulations, your environment is on its way".
+To request a trial, go to [z Systems trial homepage](https://www.ibm.com/it-infrastructure/z/resources/trial#s-2). On this page, navigate to the **z/OS Connect Enterprise Edition** panel on the right. In the panel, click **"register now"** button and follow the steps. If everything goes through, you shoud see a screen titled "Congratulations, your environment is on its way".
 Wait for an email notification from "zTrial".
-The waiting normally lasts several hours to one business day.   
+The waiting normally lasts several hours to one business day.
 The trial is available through a Windows-based remote desktop environment.
 
 In order to access the trial environment, you must be able to connect to a remote system over a network connection.
-* Windows users should use the built-in Remote Desktop Connection application.       
-* Mac users should use the Remote Desktop app, available from the App Store.       
-* Linux users have several choices of remote desktop application, which might vary between distribution.   
+* Windows users should use the built-in Remote Desktop Connection application.
+* Mac users should use the Remote Desktop app, available from the App Store.
+* Linux users have several choices of remote desktop application, which might vary between distribution.
 
 ## Scenario One: Expose a CICS COBOL program as a RESTful API
 
@@ -51,22 +51,22 @@ This scenario guides you through the steps in roughly 30 minutes. By the end of 
 
 No previous knowledge of CICS, z/OS Connect EE, or API design is needed, but some awareness of API terminology might help.
 
-Please wait a moment while your development environment loads (this takes about 20 seconds). 
+Please wait a moment while your development environment loads (this takes about 20 seconds).
 
 
-1.  [Creating the API Project](#create_api_project)  
+1.  [Creating the API Project](#create_api_project)
     Create an API project that will contain your API and service mapping.
-2.  [Creating the API](#create_api)  
+2.  [Creating the API](#create_api)
     Create a basic API that uses RESTful principles.
-3.  [Associating a service with the API](#associate_service_with_api)  
+3.  [Associating a service with the API](#associate_service_with_api)
     Associate your API to a Service Archive file.
-4.  [Mapping the request](#map_request)  
+4.  [Mapping the request](#map_request)
     Map your API parameters to fields in the associated service.
-5.  [Mapping the response](#map_response)  
+5.  [Mapping the response](#map_response)
     Remove irrelevant values from the response so that your API returns relevant fields only.
-6.  [Deploying the API](#deploy_api)  
+6.  [Deploying the API](#deploy_api)
     Package and deploy your API from within the API Editor.
-7.  [Testing the API](#test_api)  
+7.  [Testing the API](#test_api)
     Test your API by using the built-in Swagger UI.
 
 ### 1. Creating the API Project  <a name="create_api_project"></a>
@@ -86,9 +86,9 @@ Before you create your API, you must create a new API project. A z/OS® Connect 
 
 
     *   type <kbd class="ph userinput">catalog</kbd> in the <span class="ph uicontrol">Project name</span> and <span class="ph uicontrol">API name</span> fields.
-    *   type <kbd class="ph userinput">/catalogManager</kbd> in the <span class="ph uicontrol">Base path</span> field.    
+    *   type <kbd class="ph userinput">/catalogManager</kbd> in the <span class="ph uicontrol">Base path</span> field.
 
- ![A screen shot that shows the API project wizard, with the required text boxes filled in.](img/new_proj_zc_cics.png)  
+ ![A screen shot that shows the API project wizard, with the required text boxes filled in.](img/new_proj_zc_cics.png)
 
 4.  <span class="ph cmd">Click <span class="ph uicontrol">Finish</span> to create the project in the Project Explorer.</span>
 
@@ -115,8 +115,8 @@ Create a basic API that uses RESTful principles.
 
 2.  <span class="ph cmd">Remove the POST, PUT, and DELETE methods for this path by clicking the <span class="ph uicontrol">X</span> icon associated with each method.</span>
 
-This leaves the GET method. The GET method is typically used for retrieving data, which is the purpose of your API.       
-![Screen capture that shows correctly configured Paths and Methods.](img/leave_get_cics.gif)  
+This leaves the GET method. The GET method is typically used for retrieving data, which is the purpose of your API.
+![Screen capture that shows correctly configured Paths and Methods.](img/leave_get_cics.gif)
 
 3.  <span class="ph cmd">Click <span class="ph uicontrol">File</span> > <span class="ph uicontrol">Save</span> from the menu to save your progress.</span>
 
@@ -145,8 +145,8 @@ In this scenario, the `.sar` file is already generated, so you can focus on crea
 5.  <span class="ph cmd">In the dialog box that opens, click <span class="ph uicontrol">OK</span> to confirm the import.</span>
 6.  <span class="ph cmd">Click <span class="ph uicontrol">OK</span>.</span>
 
-The `inquireSingle` service is now associated with the get method of your API.     
-![Screen capture that shows the inquireSingle service that is correctly associated with the GET method of your API.](img/serv_assoc_cics.png)  
+The `inquireSingle` service is now associated with the get method of your API.
+![Screen capture that shows the inquireSingle service that is correctly associated with the GET method of your API.](img/serv_assoc_cics.png)
 
 7.  <span class="ph cmd">Click <span class="ph uicontrol">File</span> > <span class="ph uicontrol">Save</span> from the menu to save your progress.</span>
 
@@ -192,7 +192,7 @@ Leave the <span class="ph uicontrol">Omit from interface</span> option checked t
 
     A <span class="ph uicontrol">Move</span> action is created that assigns the path parameter `itemID` in the HTTP request to the field `ca_item_ref_req` in the service's JSON content.
 
-    ![](img/move_action_cics.gif)  
+    ![](img/move_action_cics.gif)
 
     <div class="note note note_note"><span class="note__title">Note:</span> This mapping defines the flow of a value, which is passed in by an API consumer, to the service associated with the API. The service then passes the value to the CICS application. At each stage, the data is transformed into formats and structures that each participant can understand.</div>
 
@@ -221,8 +221,8 @@ You can safely remove these fields to make the API response and the API document
 
 4.  <span class="ph cmd">Right-click one of the selected fields, and select <span class="ph uicontrol">Add Remove transform</span>.</span>
 
-This excludes these fields from the body of the response.  
-![Screen capture that shows the correct configuration for the response tab for this scenario.](img/remove_action_cics.png)  
+This excludes these fields from the body of the response.
+![Screen capture that shows the correct configuration for the response tab for this scenario.](img/remove_action_cics.png)
 
 5.  <span class="ph cmd">Click <span class="ph uicontrol">File</span> > <span class="ph uicontrol">Save</span> from the menu to save your progress.</span>
 6.  <span class="ph cmd">Close the <span class="ph uicontrol">response</span> tab.</span>
@@ -241,7 +241,7 @@ Package and deploy your API from within the API Editor.
 
 1.  <span class="ph cmd">In the <span class="ph uicontrol">Project Explorer</span> view, select your API project (<span class="ph uicontrol">catalog</span>) and right-click to select <span class="ph menucascade"><span class="ph uicontrol">z/OS Connect EE</span> > <span class="ph uicontrol">Deploy API to z/OS Connect EE Server</span></span>.</span>
 
-2. Optional: If the z/OS Connect EE server is disconnected, connect to the server by clicking on the red icon at the top of the Deploy API dialog. 
+2. Optional: If the z/OS Connect EE server is disconnected, connect to the server by clicking on the red icon at the top of the Deploy API dialog.
 
 ![Screen capture showing the Deploy API dialog box where the z/OS Connect EE server is initially disconnected.](img/connect_server_cics.gif)
 
@@ -290,7 +290,7 @@ You can use your new API to check the price and stock levels of this item.
                                 "RETURNED ITEM: REF =0010", "ca_inquire_single": { "ca_single_item": {
                                     "in_sngl_stock": 129, "ca_sngl_description": "Ball Pens Black
                                 24pk", "ca_sngl_item_ref": 10, "on_sngl_order": 0, "ca_sngl_cost":
-                                    "002.90", "ca_sngl_department": 10 } } } } 
+                                    "002.90", "ca_sngl_department": 10 } } } }
 
     </div>
 Congratulations! You've successfully exposed a CICS® application as a RESTful API by using z/OS Connect EE!
@@ -310,21 +310,21 @@ This scenario guides you through the steps in roughly 30 minutes. By the end of 
 
 No previous knowledge of IMS, z/OS Connect EE, or API design is needed, but some awareness of API terminology might help.
 
-Please wait a moment while your development environment loads (this takes a minute or so). 
+Please wait a moment while your development environment loads (this takes a minute or so).
 
-1.  [Creating the API Project](#createapi_project)  
+1.  [Creating the API Project](#createapi_project)
     Create an API project that will contain your API and service mapping.
-2.  [Creating the API](#createapi)  
+2.  [Creating the API](#createapi)
     Create a basic API that uses RESTful principles.
-3.  [Associating a service with the API](#associateservice_with_api)  
+3.  [Associating a service with the API](#associateservice_with_api)
     Associate your API to a Service Archive file.
-4.  [Mapping the request](#maprequest)  
+4.  [Mapping the request](#maprequest)
     Map your API parameters to fields in the associated service.
-5.  [Mapping the response](#mapresponse)  
+5.  [Mapping the response](#mapresponse)
     Remove irrelevant values from the response so that your API returns relevant fields only.
-6.  [Deploying the API](#deployapi)  
+6.  [Deploying the API](#deployapi)
     Package and deploy your API from within the API Editor.
-7.  [Testing the API](#testapi)  
+7.  [Testing the API](#testapi)
     Test your API by using the built-in Swagger UI.
 
 ### 1. Creating the API Project <a name="createapi_project"></a>
@@ -347,7 +347,7 @@ Before you create your API, you must create a new API project. A z/OS® Connect 
     *   enter <kbd class="ph userinput">phonebook</kbd> in the <span class="ph uicontrol">Project name</span> field and <span class="ph uicontrol">API name</span> field.
     *   enter <kbd class="ph userinput">/phonebook</kbd> in the <span class="ph uicontrol">Base path</span> field.
 
-    ![A screen shot that shows the API project wizard, with the required text boxes filled in.](img/new_proj_zc_ims.png)  
+    ![A screen shot that shows the API project wizard, with the required text boxes filled in.](img/new_proj_zc_ims.png)
     </div>
 
 4.  <span class="ph cmd">Click <span class="ph uicontrol">Finish</span> to create the project in the Project Explorer.</span>
@@ -370,8 +370,8 @@ You'll create an API that a consumer can use to add contact information to the p
 
 2.  <span class="ph cmd">Remove the GET, PUT and DELETE methods for this path by clicking on the <span class="ph uicontrol">X</span> icon associated with each method.</span>
 
-This leaves the POST method. The POST method is typically used for submitting data, which is the purpose of your API.  
-![Screen capture that shows correctly configured Paths and Methods.](img/leave_post_ims.gif)  
+This leaves the POST method. The POST method is typically used for submitting data, which is the purpose of your API.
+![Screen capture that shows correctly configured Paths and Methods.](img/leave_post_ims.gif)
 
 
 3.  <span class="ph cmd">Click <span class="ph uicontrol">File</span> > <span class="ph uicontrol">Save</span> from the menu to save your progress.</span>
@@ -402,9 +402,9 @@ In this scenario, the `.sar` file is already generated, so you can focus on crea
 5.  <span class="ph cmd">In the dialog box that opens, click <span class="ph uicontrol">OK</span> to confirm the import.</span>
 6.  <span class="ph cmd">Click <span class="ph uicontrol">OK</span>.</span>
 
-The `contacts` service is now associated with the get method of your API.  
-![Screen shot that shows the contacts service correctly associated with the POST method of your API.](img/serv_assoc_ims.png)  
- 
+The `contacts` service is now associated with the get method of your API.
+![Screen shot that shows the contacts service correctly associated with the POST method of your API.](img/serv_assoc_ims.png)
+
 
 7.  <span class="ph cmd">Click <span class="ph uicontrol">File</span> > <span class="ph uicontrol">Save</span> from the menu to save your progress.</span>
 
@@ -456,8 +456,8 @@ You can safely remove these fields to make the API response and the API document
 1.  <span class="ph cmd">Click <span class="ph uicontrol">Mapping...</span> for the POST method, then click <span class="ph uicontrol">Open Response Mapping</span>.</span>
 2.  <span class="ph cmd">Right-click `OUT_COMMAND` on the right side of the tab, and select <span class="ph uicontrol">Add Remove transform</span>.
 
-This excludes this field from the body of the response.  
-![Screen shot that shows the correct configuration for the response tab for this scenario.](img/response_map_ims.png)  
+This excludes this field from the body of the response.
+![Screen shot that shows the correct configuration for the response tab for this scenario.](img/response_map_ims.png)
 
 
 3.  <span class="ph cmd">Click <span class="ph uicontrol">File</span> > <span class="ph uicontrol">Save</span> from the menu to save your progress.</span>
